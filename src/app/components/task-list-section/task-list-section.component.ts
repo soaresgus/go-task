@@ -4,8 +4,6 @@ import { Component } from '@angular/core';
   selector: 'app-task-list-section',
   imports: [],
   templateUrl: './task-list-section.component.html',
-  styleUrl: './task-list-section.component.css'
+  styleUrl: './task-list-section.component.css',
 })
-export class TaskListSectionComponent {
-
-}
+export class TaskListSectionComponent {}

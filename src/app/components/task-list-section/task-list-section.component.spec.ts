@@ -8,9 +8,8 @@ describe('TaskListSectionComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TaskListSectionComponent]
-    })
-    .compileComponents();
+      imports: [TaskListSectionComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(TaskListSectionComponent);
     component = fixture.componentInstance;

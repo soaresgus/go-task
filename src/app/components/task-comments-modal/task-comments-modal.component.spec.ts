@@ -8,9 +8,8 @@ describe('TaskCommentsModalComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TaskCommentsModalComponent]
-    })
-    .compileComponents();
+      imports: [TaskCommentsModalComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(TaskCommentsModalComponent);
     component = fixture.componentInstance;

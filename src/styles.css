@@ -1,6 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&display=swap');
 @import "tailwindcss";
 
+@theme {
+    --color-accent-brand: #2A89EF;
+    --color-accent-brand-light: #ECF4FE;
+    --color-accent-brand-dark: #0A53A1;
+    --color-accent-red: #E61E32;
+    --color-accent-green: #15BE78;
+    --color-accent-orange: #FF850A;
+
+    --color-text-heading: #080B12;
+    --color-text-paragraph: #374151;
+    --color-text-span: #9CA3AF;
+    --color-text-placeholder: #89919F;
+    --color-text-invert: #FFFFFF;
+
+    --color-bg-light: #FFFFFF;
+    --color-bg-dark: #D7D8D8;
+    --color-bg-surface: #FAFAFA;
+
+    --color-border-dark: #636D7E;
+    --color-border-light: #D1D5DB;
+}
+
 html {
     font-family: "Archivo", sans-serif;
 }
