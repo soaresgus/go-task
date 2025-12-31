@@ -1,7 +1,7 @@
 <form class="rounded-xl overflow-hidden bg-bg-light">
   <div class="flex gap-1 items-center p-4">
     <img src="images/icon-new-task.svg" />
-    <h1 class="font-semibold text-lg">Criar/Editar tarefa</h1>
+    <h1 class="font-semibold text-lg">{{ _data.mode === 'create' ? 'Criar' : 'Editar' }} tarefa</h1>
     <img src="images/icon-close.svg" class="ml-auto cursor-pointer" />
   </div>
   <div class="p-4 border-y border-border-light flex flex-col gap-4">
@@ -40,7 +40,7 @@
       class="bg-accent-brand py-3 px-4 rounded-xl shadow-[0_4px_20px_#2A89EF66] transition-all duration-75 w-fit hover:bg-accent-brand-dark hover:cursor-pointer active:translate-y-1 text-text-invert"
       type="submit"
     >
-      Criar uma tarefa
+      {{ _data.mode === 'create' ? 'Criar uma tarefa' : 'Salvar alterações' }}
     </button>
   </div>
 </form>
