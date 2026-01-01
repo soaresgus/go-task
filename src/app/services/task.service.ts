@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, map } from 'rxjs';
 import { ITask } from '../interfaces/task.interface';
 import { ITaskFormControls } from '../interfaces/task-form-controls.interface';
 import { generateUniqueId } from '../utils/generate-unique-id';
@@ -10,13 +10,19 @@ import { TaskStatusEnum } from '../enums/task-status.enum';
 })
 export class TaskService {
   private todoTasks$ = new BehaviorSubject<ITask[]>([]);
-  readonly todoTasksObservable = this.todoTasks$.asObservable();
+  readonly todoTasksObservable = this.todoTasks$
+    .asObservable()
+    .pipe(map((tasks) => structuredClone(tasks)));
 
   private doingTasks$ = new BehaviorSubject<ITask[]>([]);
-  readonly doingTasksObservable = this.doingTasks$.asObservable();
+  readonly doingTasksObservable = this.doingTasks$
+    .asObservable()
+    .pipe(map((tasks) => structuredClone(tasks)));
 
   private doneTasks$ = new BehaviorSubject<ITask[]>([]);
-  readonly doneTasksObservable = this.doneTasks$.asObservable();
+  readonly doneTasksObservable = this.doneTasks$
+    .asObservable()
+    .pipe(map((tasks) => structuredClone(tasks)));
 
   addTask(taskInfos: ITaskFormControls): void {
     const newTask: ITask = {
