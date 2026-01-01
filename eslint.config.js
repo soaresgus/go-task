@@ -28,8 +28,10 @@ export default [
     rules: {
       ...tsPlugin.configs.recommended.rules,
       ...angular.configs.recommended.rules,
+      ...prettier.rules,
       'prettier/prettier': 'error',
-      'unused-imports/no-unused-imports': 'error'
+      'unused-imports/no-unused-imports': 'error',
+      '@typescript-eslint/no-unused-vars': 'off'
     }
   },
 
@@ -41,12 +43,10 @@ export default [
       parser: angularTemplateParser
     },
     plugins: {
-      '@angular-eslint/template': angularTemplate,
-      prettier: pluginPrettier
+      '@angular-eslint/template': angularTemplate
     },
     rules: {
-      ...angularTemplate.configs.recommended.rules,
-      'prettier/prettier': ['error', { parser: 'angular' }]
+      ...angularTemplate.configs.recommended.rules
     }
   }
 ];
