@@ -9,11 +9,10 @@
     </div>
     <button
       class="flex gap-2 bg-accent-brand py-3 px-4 rounded-xl shadow-[0_4px_20px_#2A89EF66] transition-all duration-75 w-fit hover:bg-accent-brand-dark hover:cursor-pointer active:translate-y-1"
+      (click)="openNewTaskModal()"
     >
       <img src="images/icon-plus-circle.svg" class="w-4" />
-      <span class="font-semibold text-sm text-text-invert" (click)="openNewTaskModal()">
-        Criar uma tarefa
-      </span>
+      <span class="font-semibold text-sm text-text-invert">Criar uma tarefa</span>
     </button>
   </div>
 </div>
