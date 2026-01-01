@@ -1,5 +1,5 @@
 export enum TaskStatus {
-    TODO: 'to-do',
-    DOING: 'doing',
-    DONE: 'done'
+  TODO = 'to-do',
+  DOING = 'doing',
+  DONE = 'done',
 }
