@@ -16,7 +16,7 @@
     <div class="py-2 border-b border-border-light flex items-center gap-1">
       <h1 class="font-semibold">A fazer</h1>
       <span class="text-xs font-semibold bg-text-heading text-text-invert py-1 px-2 rounded-xl">
-        1
+        {{ todoTasks.length }}
       </span>
     </div>
     <div class="flex flex-col gap-4">
@@ -37,7 +37,7 @@
     <div class="py-2 border-b border-border-light flex items-center gap-1">
       <h1 class="font-semibold">Fazendo</h1>
       <span class="text-xs font-semibold bg-accent-orange text-text-invert py-1 px-2 rounded-xl">
-        0
+        {{ doingTasks.length }}
       </span>
     </div>
     <div class="flex flex-col gap-4">
@@ -58,7 +58,7 @@
     <div class="py-2 border-b border-border-light flex items-center gap-1">
       <h1 class="font-semibold">Concluído</h1>
       <span class="text-xs font-semibold bg-accent-green text-text-invert py-1 px-2 rounded-xl">
-        0
+        {{ doneTasks.length }}
       </span>
     </div>
     <div class="flex flex-col gap-4">
