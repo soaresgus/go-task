@@ -1,6 +1,7 @@
 @let todoTasks = (this._taskService.todoTasksObservable | async) ?? [];
 @let doingTasks = (this._taskService.doingTasksObservable | async) ?? [];
 @let doneTasks = (this._taskService.doneTasksObservable | async) ?? [];
+@let noTasksCreated = todoTasks.length === 0 && doingTasks.length === 0 && doneTasks.length === 0;
 
 <div class="flex mb-8 overflow-x-auto">
   <div
@@ -68,6 +69,8 @@
   </div>
 </div>
 
-<div class="bg-bg-surface rounded-sm py-3 px-5 border-l-4 border-black">
-  <p class="font-semibold text-lg text-text-span">Nenhuma tarefa disponível no momento.</p>
-</div>
+@if (noTasksCreated) {
+  <div class="bg-bg-surface rounded-sm py-3 px-5 border-l-4 border-black">
+    <p class="font-semibold text-lg text-text-span">Nenhuma tarefa disponível no momento.</p>
+  </div>
+}
