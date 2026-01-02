@@ -29,6 +29,13 @@ export class TaskCardComponent {
   }
 
   openTaskCommentsModal() {
-    this._modalControllerService.openTaskCommentsModal();
+    this.task.comments = [
+      {
+        id: '123',
+        description: 'This is a sample comment',
+        createdAt: new Date(),
+      },
+    ];
+    this._modalControllerService.openTaskCommentsModal(this.task);
   }
 }
