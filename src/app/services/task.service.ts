@@ -53,6 +53,24 @@ export class TaskService {
     }
   }
 
+  editTaskInfo(taskId: string, taskCurrentStatus: TaskStatus, updatedInfos: ITaskFormControls) {
+    const currentTaskList = this.getTaskListByStatus(taskCurrentStatus);
+    const currentTask = currentTaskList.value.find((task) => task.id === taskId);
+
+    if (currentTask) {
+      const updatedTask = {
+        ...currentTask,
+        ...updatedInfos,
+      };
+
+      const updatedTaskList = currentTaskList.value.map((task) =>
+        task.id === taskId ? updatedTask : task,
+      );
+
+      currentTaskList.next([...updatedTaskList]);
+    }
+  }
+
   private getTaskListByStatus(status: TaskStatus): BehaviorSubject<ITask[]> {
     switch (status) {
       case TaskStatusEnum.TODO:
