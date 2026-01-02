@@ -4,6 +4,7 @@ import { ITask } from '../interfaces/task.interface';
 import { ITaskFormControls } from '../interfaces/task-form-controls.interface';
 import { generateUniqueId } from '../utils/generate-unique-id';
 import { TaskStatusEnum } from '../enums/task-status.enum';
+import { TaskStatus } from '../types/task-status';
 
 @Injectable({
   providedIn: 'root',
@@ -35,5 +36,33 @@ export class TaskService {
 
     const currentTodoTasks = this.todoTasks$.value;
     this.todoTasks$.next([...currentTodoTasks, newTask]);
+  }
+
+  updateTaskStatus(taskId: string, taskCurrentStatus: TaskStatus, newStatus: TaskStatus) {
+    const currentTaskList = this.getTaskListByStatus(taskCurrentStatus);
+    const nextTaskList = this.getTaskListByStatus(newStatus);
+    const currentTask = currentTaskList.value.find((task) => task.id === taskId);
+
+    if (currentTask) {
+      currentTask.currentStatus = newStatus;
+
+      const updatedCurrentTaskList = currentTaskList.value.filter((task) => task.id !== taskId);
+      currentTaskList.next([...updatedCurrentTaskList]);
+
+      nextTaskList.next([...nextTaskList.value, { ...currentTask }]);
+    }
+  }
+
+  private getTaskListByStatus(status: TaskStatus): BehaviorSubject<ITask[]> {
+    switch (status) {
+      case TaskStatusEnum.TODO:
+        return this.todoTasks$;
+      case TaskStatusEnum.DOING:
+        return this.doingTasks$;
+      case TaskStatusEnum.DONE:
+        return this.doneTasks$;
+      default:
+        throw new Error('Invalid task status');
+    }
   }
 }
