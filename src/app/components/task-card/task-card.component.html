@@ -1,9 +1,9 @@
 <div class="bg-bg-surface p-3 rounded-xl cursor-grab flex flex-col gap-3">
   <div class="flex gap-1">
-    <p class="font-semibold line-clamp-2">{{ task.name }}</p>
+    <p class="font-semibold line-clamp-2" [title]="task.name">{{ task.name }}</p>
     <img class="self-start cursor-pointer ml-auto" src="images/icon-delete.svg" (click)="deleteTask()" />
   </div>
-  <p class="font-light text-sm text-text-paragraph line-clamp-2">
+  <p class="font-light text-sm text-text-paragraph line-clamp-2" [title]="task.description">
     {{ task.description }}
   </p>
   <div class="flex items-center gap-1">
