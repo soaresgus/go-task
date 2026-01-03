@@ -19,6 +19,7 @@
       <div class="flex items-start gap-2">
         <div class="flex flex-col w-full">
           <input
+            #commentInput
             class="rounded-lg border border-border-light p-3 bg-bg-light flex-1 text-sm font-light"
             type="text"
             placeholder="Adicione um comentário"
@@ -48,7 +49,7 @@
               <p class="text-xs text-text-span">
                 Comentado há {{ formatElapsed(comment.createdAt) }} atrás
               </p>
-              <p class="font-semibold text-xs underline underline-offset-2 cursor-pointer">
+              <p class="font-semibold text-xs underline underline-offset-2 cursor-pointer" (click)="onDeleteComment(comment.id)">
                 Apagar
               </p>
             </div>
