@@ -40,4 +40,8 @@ export class TaskCardComponent {
       }
     });
   }
+
+  deleteTask() {
+    this._taskService.deleteTask(this.task.id, this.task.currentStatus);
+  }
 }

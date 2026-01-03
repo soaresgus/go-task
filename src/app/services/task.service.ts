@@ -90,6 +90,12 @@ export class TaskService {
     }
   }
 
+  deleteTask(taskId: string, taskCurrentStatus: TaskStatus) {
+    const currentTaskList = this.getTaskListByStatus(taskCurrentStatus);
+    const updatedTaskList = currentTaskList.value.filter((task) => task.id !== taskId);
+    currentTaskList.next([...updatedTaskList]);
+  }
+
   private getTaskListByStatus(status: TaskStatus): BehaviorSubject<ITask[]> {
     switch (status) {
       case TaskStatusEnum.TODO:
