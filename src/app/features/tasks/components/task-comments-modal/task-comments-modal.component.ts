@@ -1,10 +1,10 @@
 import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { Component, ElementRef, inject, ViewChild } from '@angular/core';
-import { ITask } from '../../interfaces/task.interface';
-import { formatElapsed } from '../../utils/format-elapsed';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
-import { IComment } from '../../interfaces/comment.interface';
-import { generateUniqueId } from '../../utils/generate-unique-id';
+import { IComment } from '../../../../domain/tasks/interfaces/comment.interface';
+import { ITask } from '../../../../domain/tasks/interfaces/task.interface';
+import { formatElapsed } from '../../../../shared/utils/format-elapsed';
+import { generateUniqueId } from '../../../../shared/utils/generate-unique-id';
 
 @Component({
   selector: 'app-task-comments-modal',
